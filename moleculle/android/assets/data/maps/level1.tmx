@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="surface_tiles" tilewidth="32" tileheight="32" tilecount="300" columns="20">
+  <image source="../pics/tile_map.png" trans="ffffff" width="640" height="480"/>
+ </tileset>
+ <tileset firstgid="301" name="moleculles_tiles" tilewidth="32" tileheight="32" tilecount="300" columns="20">
+  <image source="../pics/moleculles_tiles.png" width="640" height="480"/>
+  <tile id="0">
+   <properties>
+    <property name="name" value="hydrogen"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="name" value="oxygen"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="surface" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjZmBgYB5EGBsgpGbUXsJ24LILn/2DxV5y9FNiDiX20hOQay+h9EeKfnLT9VC0l1x99LaXUjOpZS8zGptYe0mJ2+FgL6UAm73E5Adq2EutOo8e9g4EBgCvrgLp
+  </data>
+ </layer>
+ <layer name="atoms" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B+QJdxoF0w+IHeaBiNgiEERvP0KBgF2AEA6BcAjA==
+  </data>
+ </layer>
+</map>
