@@ -2,7 +2,7 @@ package cz.deejay.molleculle;
 
 public class GameConstants {
 
-	public static final String[] levels = { "data/maps/level1.tmx" };
+	public static final String[] levels = { "assets/data/maps/level1.tmx" };
 
 	public static final float unitScale = 1 / 32f;
 
@@ -12,6 +12,6 @@ public class GameConstants {
 
 	public static final String oxygenSpriteSheet = "oxygen_spritesheet";
 
-	public static final String fontPath = "data/fonts/dos.fnt";
+	public static final String fontPath = "assets/data/fonts/dos.fnt";
 
 }
