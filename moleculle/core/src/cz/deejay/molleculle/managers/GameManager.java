@@ -1,5 +1,6 @@
 package cz.deejay.molleculle.managers;
 
+import java.util.Date;
 import java.util.Iterator;
 
 import com.badlogic.gdx.Gdx;
@@ -54,7 +55,7 @@ public class GameManager {
 
 	static BitmapFont font;
 
-	public static long startTime;
+	public static long startDate;
 
 	public static Rectangle door;
 	public static short currentLevelIndex = 0;
@@ -193,7 +194,7 @@ public class GameManager {
 																	// camera
 		GameScreen.camera.update();
 		GameScreen.gameState = GameState.LEVELLOADED;
-		startTime = System.nanoTime();
+		startDate = new Date().getTime();
 	}
 
 	public static void queueBaseAssets() {

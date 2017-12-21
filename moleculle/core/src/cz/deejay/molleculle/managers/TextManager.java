@@ -1,5 +1,7 @@
 package cz.deejay.molleculle.managers;
 
+import java.util.Date;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -8,6 +10,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import cz.deejay.molleculle.GameData;
 
 public class TextManager {
+
+	static int time = 4 * 60;// mins
+
 	static BitmapFont font; // we draw the text to the screen using this
 							// variable
 	// viewport width and height
@@ -29,9 +34,12 @@ public class TextManager {
 	}
 
 	public static void displayMessage(SpriteBatch batch) {
-		if (GameData.runningTime == 1e+9) {
-			GameData.time -= 1;
-			GameManager.startTime = System.nanoTime();
+		long runningTime = System.currentTimeMillis() - GameManager.startDate;
+		int seconds = time % 60;
+		int minutes = time / 60;
+		if (runningTime > 1000) {
+			time--;
+			GameManager.startDate = new Date().getTime();
 
 		}
 		layout.setText(font, "Score: " + GameData.score);
@@ -39,7 +47,7 @@ public class TextManager {
 		// top the score display at top right corner
 		font.draw(batch, "Score: " + GameData.score, width - fontWidth - width / 15f, height * 0.98f);
 		// show the number of lives at top left corner
-		font.draw(batch, "Time: " + GameData.minutes + ":" + GameData.seconds, width * 0.01f, height * 0.98f);
+		font.draw(batch, "Time: " + minutes + ":" + seconds, width * 0.01f, height * 0.98f);
 
 	}
 
