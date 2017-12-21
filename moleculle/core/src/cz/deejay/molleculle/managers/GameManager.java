@@ -31,12 +31,12 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
 import cz.deejay.molleculle.GameConstants;
+import cz.deejay.molleculle.GameData;
 import cz.deejay.molleculle.GameScreen;
 import cz.deejay.molleculle.GameScreen.GameState;
 import cz.deejay.molleculle.utils.MapUtils;
 
 public class GameManager {
-
 	public static AssetManager assetManager;
 	static TextureAtlas texturePack; // packed texture.
 
@@ -53,6 +53,8 @@ public class GameManager {
 	public static float Width, Height;
 
 	static BitmapFont font;
+
+	public static long startTime;
 
 	public static Rectangle door;
 	public static short currentLevelIndex = 0;
@@ -180,10 +182,18 @@ public class GameManager {
 
 		door = MapUtils.spawnDoor(mapWidth, mapHeight);
 
-		GameScreen.camera.setToOrtho(false, mapWidth, mapHeight); // show specified units horizontally and vertically by
-																	// the camera
+		GameScreen.camera.setToOrtho(false, mapWidth, mapHeight); // show
+																	// specified
+																	// units
+																	// horizontally
+																	// and
+																	// vertically
+																	// by
+																	// the
+																	// camera
 		GameScreen.camera.update();
 		GameScreen.gameState = GameState.LEVELLOADED;
+		startTime = System.nanoTime();
 	}
 
 	public static void queueBaseAssets() {

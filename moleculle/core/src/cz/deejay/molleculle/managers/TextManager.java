@@ -8,10 +8,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import cz.deejay.molleculle.GameData;
 
 public class TextManager {
-	static BitmapFont font; // we draw the text to the screen using this variable
+	static BitmapFont font; // we draw the text to the screen using this
+							// variable
 	// viewport width and height
 	static float width, height;
-	static BitmapFont loadingFont; // we draw the text to the loading screen using this variable
+	static BitmapFont loadingFont; // we draw the text to the loading screen
+									// using this variable
 	static GlyphLayout layout = new GlyphLayout();
 
 	public static void initialize(float width, float height, BitmapFont font) {
@@ -27,12 +29,17 @@ public class TextManager {
 	}
 
 	public static void displayMessage(SpriteBatch batch) {
+		if (GameData.runningTime == 1e+9) {
+			GameData.time -= 1;
+			GameManager.startTime = System.nanoTime();
+
+		}
 		layout.setText(font, "Score: " + GameData.score);
 		float fontWidth = layout.width;
 		// top the score display at top right corner
 		font.draw(batch, "Score: " + GameData.score, width - fontWidth - width / 15f, height * 0.98f);
 		// show the number of lives at top left corner
-		font.draw(batch, "Lives: " + GameData.lives, width * 0.01f, height * 0.98f);
+		font.draw(batch, "Time: " + GameData.minutes + ":" + GameData.seconds, width * 0.01f, height * 0.98f);
 
 	}
 
